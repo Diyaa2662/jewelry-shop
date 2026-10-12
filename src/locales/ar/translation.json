@@ -1,0 +1,155 @@
+{
+  "topbar": {
+    "freeShipping": "شحن مجاني للطلبات فوق 300$",
+    "warranty": "ضمان مدى الحياة",
+    "returns": "إرجاع مجاني خلال 40 يوم"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "shop": "المتجر",
+    "categories": "الفئات",
+    "contact": "تواصل معنا"
+  },
+  "footer": {
+    "tagline": "نصنع قطعاً خالدة بدقة وشغف منذ عام 1990.",
+    "shop": "المتجر",
+    "help": "المساعدة",
+    "about": "من نحن",
+    "rights": "© 2026 لوكسورا للمجوهرات. جميع الحقوق محفوظة.",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الاستخدام",
+    "links": {
+      "rings": "خواتم",
+      "necklaces": "سلاسل",
+      "earrings": "أقراط",
+      "bracelets": "أساور",
+      "wedding": "دبل الزفاف",
+      "contactUs": "تواصل معنا",
+      "shipping": "الشحن",
+      "returns": "الإرجاع",
+      "sizeGuide": "دليل المقاسات",
+      "faq": "الأسئلة الشائعة",
+      "ourStory": "قصتنا",
+      "sustainability": "الاستدامة",
+      "careers": "الوظائف",
+      "blog": "المدونة",
+      "press": "الصحافة"
+    }
+  },
+  "home": {
+    "hero": {
+      "line1": "جمال خالد.",
+      "line2": "صُنع ليلمع.",
+      "description": "اكتشف مجوهرات فاخرة مصنوعة بدقة وشغف وأجود الخامات.",
+      "exploreMore": "اكتشف المزيد",
+      "exploreCollection": "تصفح المجموعة"
+    },
+    "features": {
+      "freeShipping": {
+        "title": "شحن مجاني",
+        "subtitle": "توصيل مجاني لكل الطلبات"
+      },
+      "warranty": {
+        "title": "ضمان مدى الحياة",
+        "subtitle": "ضمان دائم على كل القطع"
+      },
+      "returns": {
+        "title": "إرجاع خلال 10 أيام",
+        "subtitle": "منتج موثّق ومضمون"
+      },
+      "secure": { "title": "دفع آمن", "subtitle": "حماية كاملة للمدفوعات" }
+    },
+    "shopByCategory": "تسوق حسب الفئة",
+    "featuredCollection": "المجموعة المميزة",
+    "tabs": {
+      "all": "كل المجوهرات",
+      "bestSellers": "الأكثر مبيعاً",
+      "newArrivals": "وصل حديثاً"
+    },
+    "customJewelry": {
+      "label": "مجوهرات مخصصة",
+      "title": "رؤيتك. حرفتنا.",
+      "description": "حوّل قطعتك المثالية إلى واقع. من الرسم الأولي إلى اللمعان النهائي، نهتم بأدق التفاصيل بدقة وشغف وجودة لا تُضاهى.",
+      "cta": "تسوق الآن وخصص قطعتك"
+    },
+    "categories": {
+      "rings": "خواتم",
+      "necklaces": "سلاسل",
+      "earrings": "أقراط",
+      "bracelets": "أساور",
+      "wedding": "دبل الزفاف"
+    }
+  },
+  "products": {
+    "breadcrumbHome": "الرئيسية",
+    "breadcrumbShop": "المتجر",
+    "title": "تصفح كل المجوهرات",
+    "subtitle": "اكتشف مجوهرات رائعة تضيف الأناقة لكل لحظة.",
+    "categories": "الفئات",
+    "filterBy": "تصفية حسب",
+    "price": "السعر",
+    "material": "المادة",
+    "stone": "الحجر",
+    "clearAll": "مسح الكل",
+    "showing": "عرض",
+    "results": "نتيجة",
+    "sortBy": "ترتيب حسب",
+    "sort": {
+      "featured": "المميزة",
+      "priceLow": "السعر: من الأقل للأعلى",
+      "priceHigh": "السعر: من الأعلى للأقل",
+      "newest": "الأحدث"
+    },
+    "materials": {
+      "gold": "ذهب",
+      "whiteGold": "ذهب أبيض",
+      "platinum": "بلاتين",
+      "silver": "فضة"
+    },
+    "stones": {
+      "diamond": "ألماس",
+      "pearl": "لؤلؤ",
+      "emerald": "زمرد",
+      "ruby": "ياقوت"
+    },
+    "noResults": "لا توجد منتجات مطابقة للفلاتر."
+  },
+  "whatsapp": {
+    "label": "تواصل عبر واتساب",
+    "message": "مرحباً! أرغب بمعرفة المزيد عن مجوهراتكم."
+  },
+  "contact": {
+    "breadcrumb": "تواصل معنا",
+    "title": "تواصل معنا",
+    "subtitle": "يسعدنا سماعك. أرسل لنا رسالة وسنرد عليك خلال 24 ساعة.",
+    "info": {
+      "openMap": "افتح في خرائط جوجل",
+      "title": "زُر متجرنا",
+      "address": "123 شارع المجوهرات، عمّان، الأردن",
+      "phone": "+962 7 0000 0000",
+      "email": "hello@luxora.com",
+      "hours": {
+        "title": "ساعات العمل",
+        "weekdays": "الأحد – الخميس: 10:00 ص – 9:00 م",
+        "weekend": "الجمعة – السبت: 2:00 م – 10:00 م"
+      }
+    },
+    "form": {
+      "title": "أرسل رسالة",
+      "name": "الاسم الكامل",
+      "namePlaceholder": "اسمك الكامل",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "you@example.com",
+      "phone": "رقم الهاتف",
+      "phonePlaceholder": "+962 7X XXX XXXX",
+      "subject": "الموضوع",
+      "subjectPlaceholder": "كيف يمكننا مساعدتك؟",
+      "message": "الرسالة",
+      "messagePlaceholder": "اكتب رسالتك هنا...",
+      "submit": "إرسال الرسالة",
+      "submitting": "جاري الإرسال...",
+      "success": "شكراً لك! تم إرسال رسالتك بنجاح.",
+      "error": "حدث خطأ ما. الرجاء المحاولة مرة أخرى."
+    }
+  }
+}

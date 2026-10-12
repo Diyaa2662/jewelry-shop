@@ -1,0 +1,158 @@
+{
+  "topbar": {
+    "freeShipping": "Free Shipping on Orders Over $300",
+    "warranty": "Lifetime Warranty",
+    "returns": "40 Day Easy Return"
+  },
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "categories": "Categories",
+    "contact": "Contact"
+  },
+  "footer": {
+    "tagline": "Crafting timeless pieces with precision and passion since 1990.",
+    "shop": "Shop",
+    "help": "Help",
+    "about": "About",
+    "rights": "© 2026 Luxora Jewelry. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "links": {
+      "rings": "Rings",
+      "necklaces": "Necklaces",
+      "earrings": "Earrings",
+      "bracelets": "Bracelets",
+      "wedding": "Wedding",
+      "contactUs": "Contact Us",
+      "shipping": "Shipping",
+      "returns": "Returns",
+      "sizeGuide": "Size Guide",
+      "faq": "FAQ",
+      "ourStory": "Our Story",
+      "sustainability": "Sustainability",
+      "careers": "Careers",
+      "blog": "Blog",
+      "press": "Press"
+    }
+  },
+  "home": {
+    "hero": {
+      "line1": "Timeless Beauty.",
+      "line2": "Made to Shine.",
+      "description": "Discover exquisite jewelry crafted with precision, passion, and the finest materials.",
+      "exploreMore": "Explore More",
+      "exploreCollection": "Explore Collection"
+    },
+    "features": {
+      "freeShipping": {
+        "title": "Free Shipping",
+        "subtitle": "Free delivery on all orders"
+      },
+      "warranty": {
+        "title": "Lifetime Warranty",
+        "subtitle": "Lifetime warranty on all pieces"
+      },
+      "returns": {
+        "title": "10 Day Returns",
+        "subtitle": "This gift certified"
+      },
+      "secure": {
+        "title": "Secure Payment",
+        "subtitle": "100% protected payments"
+      }
+    },
+    "shopByCategory": "Shop by Category",
+    "featuredCollection": "Featured Collection",
+    "tabs": {
+      "all": "All Jewelry",
+      "bestSellers": "Best Sellers",
+      "newArrivals": "New Arrivals"
+    },
+    "customJewelry": {
+      "label": "Custom Jewelry",
+      "title": "Your Vision. Our Craftsmanship.",
+      "description": "Bring your dream piece to life. From sketch to sparkle, we handle every detail with precision, passion, and uncompromising quality.",
+      "cta": "Shop Now in Customize"
+    },
+    "categories": {
+      "rings": "Rings",
+      "necklaces": "Necklaces",
+      "earrings": "Earrings",
+      "bracelets": "Bracelets",
+      "wedding": "Wedding Bands"
+    }
+  },
+  "products": {
+    "breadcrumbHome": "Home",
+    "breadcrumbShop": "Shop",
+    "title": "Shop All",
+    "subtitle": "Discover brilliant jewelry to add elegance to every moment.",
+    "categories": "Categories",
+    "filterBy": "Filter By",
+    "price": "Price",
+    "material": "Material",
+    "stone": "Stone",
+    "clearAll": "Clear All",
+    "showing": "Showing",
+    "results": "results",
+    "sortBy": "Sort by",
+    "sort": {
+      "featured": "Featured",
+      "priceLow": "Price: Low to High",
+      "priceHigh": "Price: High to Low",
+      "newest": "Newest"
+    },
+    "materials": {
+      "gold": "Gold",
+      "whiteGold": "White Gold",
+      "platinum": "Platinum",
+      "silver": "Silver"
+    },
+    "stones": {
+      "diamond": "Diamond",
+      "pearl": "Pearl",
+      "emerald": "Emerald",
+      "ruby": "Ruby"
+    },
+    "noResults": "No products match your filters."
+  },
+  "whatsapp": {
+    "label": "Chat on WhatsApp",
+    "message": "Hello! I'd like to know more about your jewelry."
+  },
+  "contact": {
+    "breadcrumb": "Contact",
+    "title": "Get in Touch",
+    "subtitle": "We'd love to hear from you. Send us a message and we'll respond within 24 hours.",
+    "info": {
+      "openMap": "Open in Google Maps",
+      "title": "Visit Our Store",
+      "address": "123 Jewelry District, Amman, Jordan",
+      "phone": "+962 7 0000 0000",
+      "email": "hello@luxora.com",
+      "hours": {
+        "title": "Opening Hours",
+        "weekdays": "Sunday – Thursday: 10:00 AM – 9:00 PM",
+        "weekend": "Friday – Saturday: 2:00 PM – 10:00 PM"
+      }
+    },
+    "form": {
+      "title": "Send a Message",
+      "name": "Full Name",
+      "namePlaceholder": "Your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "you@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+962 7X XXX XXXX",
+      "subject": "Subject",
+      "subjectPlaceholder": "How can we help?",
+      "message": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": "Thank you! Your message has been sent successfully.",
+      "error": "Something went wrong. Please try again."
+    }
+  }
+}
