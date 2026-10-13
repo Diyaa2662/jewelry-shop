@@ -13,11 +13,13 @@ i18n
       en: { translation: en },
       ar: { translation: ar },
     },
-    fallbackLng: "ar",
-    supportedLngs: ["en", "ar"],
+    fallbackLng: "ar", // ← الافتراضية عربي
+    supportedLngs: ["ar", "en"],
     interpolation: { escapeValue: false },
     detection: {
-      order: ["localStorage", "navigator"],
+      // الترتيب: نتحقق أولاً من localStorage (لو المستخدم اختار لغة قبل)،
+      // وإذا ما لقى شي، بيرجع للـ fallbackLng (عربي)
+      order: ["localStorage"],
       caches: ["localStorage"],
     },
   });
@@ -27,5 +29,10 @@ i18n.on("languageChanged", (lng) => {
   document.documentElement.lang = lng;
   document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
 });
+
+// ضبط الاتجاه فوراً عند التحميل الأول
+const initialLng = i18n.language || "ar";
+document.documentElement.lang = initialLng;
+document.documentElement.dir = initialLng === "ar" ? "rtl" : "ltr";
 
 export default i18n;
