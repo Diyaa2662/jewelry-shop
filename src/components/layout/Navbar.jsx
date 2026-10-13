@@ -64,9 +64,11 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-6">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 border border-gold rotate-45 flex items-center justify-center">
-              <span className="text-gold -rotate-45 text-xs">◆</span>
-            </div>
+            <img
+              src="/diamond.png"
+              alt="Luxora Jewelry"
+              className="w-10 h-10 object-contain"
+            />
             <div className="leading-tight">
               <div className="font-serif text-lg tracking-widest text-gold">
                 LUXORA

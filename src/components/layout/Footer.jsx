@@ -44,9 +44,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 border border-gold rotate-45 flex items-center justify-center">
-              <span className="text-gold -rotate-45 text-xs">◆</span>
-            </div>
+            <img
+              src="/diamond.png"
+              alt="Luxora Jewelry"
+              className="w-10 h-10 object-contain"
+            />
             <div className="leading-tight">
               <div className="font-serif text-lg tracking-widest text-gold">
                 LUXORA
