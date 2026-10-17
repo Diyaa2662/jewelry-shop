@@ -3,9 +3,8 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { Search, User, ShoppingBag, Menu, X, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { cn } from "../../lib/utils";
+import { useCategoriesLookup } from "../../hooks/useLookup";
 import LanguageSwitcher from "../ui/LanguageSwitcher";
-
-const CATEGORIES = ["rings", "necklaces", "earrings", "bracelets", "wedding"];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -13,7 +12,11 @@ export default function Navbar() {
   const [mobileCatOpen, setMobileCatOpen] = useState(false);
   const dropdownRef = useRef(null);
   const location = useLocation();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isAr = i18n.language === "ar";
+
+  // ✅ نجيب الفئات من الباك
+  const { categories } = useCategoriesLookup();
 
   // إغلاق الدروب داون لما نغير الصفحة
   useEffect(() => {
@@ -66,15 +69,15 @@ export default function Navbar() {
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img
               src="/diamond.png"
-              alt="Luxora Jewelry"
+              alt={t("brand.name")}
               className="w-10 h-10 object-contain"
             />
             <div className="leading-tight">
               <div className="font-serif text-lg tracking-widest text-gold">
-                LUXORA
+                {t("brand.name")}
               </div>
               <div className="text-[9px] tracking-[0.3em] text-white/60">
-                JEWELRY
+                {t("brand.subtitle")}
               </div>
             </div>
           </Link>
@@ -117,15 +120,21 @@ export default function Navbar() {
 
               {catOpen && (
                 <div className="absolute top-full start-0 mt-3 w-56 bg-ink border border-white/10 shadow-xl py-2 z-50">
-                  {CATEGORIES.map((cat) => (
-                    <Link
-                      key={cat}
-                      to={`/products?category=${cat}`}
-                      className="block px-5 py-2.5 text-sm text-white/70 hover:text-gold hover:bg-white/5 transition-colors"
-                    >
-                      {t(`home.categories.${cat}`)}
-                    </Link>
-                  ))}
+                  {categories.length === 0 ? (
+                    <div className="px-5 py-2.5 text-sm text-white/40">
+                      {t("common.loading")}
+                    </div>
+                  ) : (
+                    categories.map((cat) => (
+                      <Link
+                        key={cat.id}
+                        to={`/products?category=${cat.id}`}
+                        className="block px-5 py-2.5 text-sm text-white/70 hover:text-gold hover:bg-white/5 transition-colors"
+                      >
+                        {isAr ? cat.name_ar : cat.name_en}
+                      </Link>
+                    ))
+                  )}
                 </div>
               )}
             </li>
@@ -213,13 +222,13 @@ export default function Navbar() {
                 </button>
                 {mobileCatOpen && (
                   <ul className="ps-4 pb-2 border-s border-white/10 ms-2">
-                    {CATEGORIES.map((cat) => (
-                      <li key={cat}>
+                    {categories.map((cat) => (
+                      <li key={cat.id}>
                         <Link
-                          to={`/products?category=${cat}`}
+                          to={`/products?category=${cat.id}`}
                           className="block py-2 text-sm text-white/60 hover:text-gold"
                         >
-                          {t(`home.categories.${cat}`)}
+                          {isAr ? cat.name_ar : cat.name_en}
                         </Link>
                       </li>
                     ))}

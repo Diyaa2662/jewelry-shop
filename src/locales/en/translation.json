@@ -1,4 +1,8 @@
 {
+  "brand": {
+    "name": "FARFASHA",
+    "subtitle": "JEWELRY"
+  },
   "topbar": {
     "freeShipping": "Free Shipping on Orders Over $300",
     "warranty": "Lifetime Warranty",
@@ -10,12 +14,15 @@
     "categories": "Categories",
     "contact": "Contact"
   },
+  "common": {
+    "loading": "Loading..."
+  },
   "footer": {
     "tagline": "Crafting timeless pieces with precision and passion since 1990.",
     "shop": "Shop",
     "help": "Help",
     "about": "About",
-    "rights": "© 2026 Luxora Jewelry. All rights reserved.",
+    "rights": "© 2026 Farfasha Jewelry. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "links": {
@@ -23,7 +30,7 @@
       "necklaces": "Necklaces",
       "earrings": "Earrings",
       "bracelets": "Bracelets",
-      "wedding": "Wedding",
+      "wedding": "Wedding Bands",
       "contactUs": "Contact Us",
       "shipping": "Shipping",
       "returns": "Returns",
@@ -74,13 +81,6 @@
       "title": "Your Vision. Our Craftsmanship.",
       "description": "Bring your dream piece to life. From sketch to sparkle, we handle every detail with precision, passion, and uncompromising quality.",
       "cta": "Shop Now in Customize"
-    },
-    "categories": {
-      "rings": "Rings",
-      "necklaces": "Necklaces",
-      "earrings": "Earrings",
-      "bracelets": "Bracelets",
-      "wedding": "Wedding Bands"
     }
   },
   "products": {
@@ -92,7 +92,6 @@
     "filterBy": "Filter By",
     "price": "Price",
     "material": "Material",
-    "stone": "Stone",
     "clearAll": "Clear All",
     "showing": "Showing",
     "results": "results",
@@ -103,19 +102,10 @@
       "priceHigh": "Price: High to Low",
       "newest": "Newest"
     },
-    "materials": {
-      "gold": "Gold",
-      "whiteGold": "White Gold",
-      "platinum": "Platinum",
-      "silver": "Silver"
-    },
-    "stones": {
-      "diamond": "Diamond",
-      "pearl": "Pearl",
-      "emerald": "Emerald",
-      "ruby": "Ruby"
-    },
-    "noResults": "No products match your filters."
+    "noResults": "No products match your filters.",
+    "empty": "No products available right now.",
+    "error": "Something went wrong while loading products.",
+    "noImage": "No image"
   },
   "whatsapp": {
     "label": "Chat on WhatsApp",
@@ -130,7 +120,7 @@
       "title": "Visit Our Store",
       "address": "123 Jewelry District, Amman, Jordan",
       "phone": "+962 7 0000 0000",
-      "email": "hello@luxora.com",
+      "email": "hello@farfasha.com",
       "hours": {
         "title": "Opening Hours",
         "weekdays": "Sunday – Thursday: 10:00 AM – 9:00 PM",

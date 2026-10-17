@@ -46,15 +46,15 @@ export default function Footer() {
           <div className="flex items-center gap-2 mb-4">
             <img
               src="/diamond.png"
-              alt="Luxora Jewelry"
+              alt={t("brand.name")}
               className="w-10 h-10 object-contain"
             />
             <div className="leading-tight">
               <div className="font-serif text-lg tracking-widest text-gold">
-                LUXORA
+                {t("brand.name")}
               </div>
               <div className="text-[9px] tracking-[0.3em] text-white/60">
-                JEWELRY
+                {t("brand.subtitle")}
               </div>
             </div>
           </div>

@@ -1,28 +1,20 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useProducts } from "../../hooks/useProducts";
+import { useHomeProducts } from "../../hooks/useProducts";
 import ProductCard from "../ui/ProductCard";
 import { cn } from "../../lib/utils";
 
 export default function FeaturedCollection() {
   const { t } = useTranslation();
-  const { products } = useProducts();
   const [activeTab, setActiveTab] = useState("all");
+
+  const { products, loading, error } = useHomeProducts(activeTab);
 
   const tabs = [
     { key: "all", label: t("home.tabs.all") },
     { key: "best", label: t("home.tabs.bestSellers") },
     { key: "new", label: t("home.tabs.newArrivals") },
   ];
-
-  const filtered = products
-    .filter((p) => {
-      if (activeTab === "all") return true;
-      if (activeTab === "new") return p.badge === "New";
-      if (activeTab === "best") return p.reviews >= 30;
-      return true;
-    })
-    .slice(0, 4);
 
   return (
     <section className="py-20 bg-white">
@@ -50,11 +42,31 @@ export default function FeaturedCollection() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {filtered.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        {loading ? (
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="animate-pulse">
+                <div className="aspect-square bg-ink/5 mb-4" />
+                <div className="h-4 bg-ink/5 w-3/4 mx-auto mb-2" />
+                <div className="h-3 bg-ink/5 w-1/2 mx-auto" />
+              </div>
+            ))}
+          </div>
+        ) : error ? (
+          <p className="text-center text-red-600 text-sm">
+            {t("products.error")}
+          </p>
+        ) : products.length === 0 ? (
+          <p className="text-center text-ink/50 text-sm">
+            {t("products.empty")}
+          </p>
+        ) : (
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {products.slice(0, 8).map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

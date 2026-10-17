@@ -1,131 +1,145 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronDown } from "lucide-react";
-import { cn } from "../../lib/utils";
+import { cn, formatPrice } from "../../lib/utils";
 
-const CATEGORIES = ["rings", "necklaces", "earrings", "bracelets", "wedding"];
-const MATERIALS = ["gold", "whiteGold", "platinum", "silver"];
-const STONES = ["diamond", "pearl", "emerald", "ruby"];
+export default function FilterSidebar({
+  filters,
+  setFilters,
+  categories = [],
+  materials = [],
+  maxPrice = 0,
+  onClearAll,
+  hideHeader = false,
+}) {
+  const { t, i18n } = useTranslation();
+  const isAr = i18n.language === "ar";
 
-export default function FilterSidebar({ filters, setFilters }) {
-  const { t } = useTranslation();
-
-  const updateFilter = (key, value) => {
+  // تبديل قيمة بـ array (checkbox)
+  const toggleArrayValue = (key, id) => {
     setFilters((prev) => {
       const current = prev[key] || [];
-      const next = current.includes(value)
-        ? current.filter((v) => v !== value)
-        : [...current, value];
+      const next = current.includes(id)
+        ? current.filter((v) => v !== id)
+        : [...current, id];
       return { ...prev, [key]: next };
     });
   };
 
-  const clearAll = () =>
-    setFilters({ categories: [], materials: [], stones: [], price: [0, 5000] });
+  // تغيير السعر
+  const handlePriceChange = (val) => {
+    setFilters((prev) => ({
+      ...prev,
+      price: [0, Number(val)],
+    }));
+  };
+
+  const currentMax = filters.price?.[1] ?? maxPrice;
+  const hasActiveFilters =
+    filters.categories?.length > 0 || filters.materials?.length > 0;
 
   return (
     <aside className="w-full lg:w-64 shrink-0">
-      {/* Breadcrumb */}
-      <div className="text-xs text-ink/50 mb-6">
-        <span>{t("products.breadcrumbShop")}</span>
-        <span className="mx-1.5">›</span>
-        <span className="text-ink/80">{t("products.title")}</span>
-      </div>
+      {!hideHeader && (
+        <>
+          {/* Breadcrumb */}
+          <div className="text-xs text-ink/50 mb-6">
+            <span>{t("products.breadcrumbShop")}</span>
+            <span className="mx-1.5">›</span>
+            <span className="text-ink/80">{t("products.title")}</span>
+          </div>
 
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="font-serif text-3xl mb-2">{t("products.title")}</h1>
-        <p className="text-xs text-ink/60 leading-relaxed">
-          {t("products.subtitle")}
-        </p>
-      </div>
+          {/* Header */}
+          <div className="mb-8">
+            <h1 className="font-serif text-3xl mb-2">{t("products.title")}</h1>
+            <p className="text-xs text-ink/60 leading-relaxed">
+              {t("products.subtitle")}
+            </p>
+          </div>
+        </>
+      )}
 
       <div className="border-t border-ink/10 pt-6">
+        {/* ===== Categories ===== */}
         <FilterSection title={t("products.categories")} defaultOpen>
           <ul className="space-y-2.5">
-            {CATEGORIES.map((cat) => (
-              <li key={cat}>
-                <label className="flex items-center gap-2 text-sm text-ink/70 hover:text-ink cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="accent-gold w-3.5 h-3.5"
-                    checked={filters.categories?.includes(cat) || false}
-                    onChange={() => updateFilter("categories", cat)}
-                  />
-                  {t(`home.categories.${cat}`)}
-                </label>
-              </li>
-            ))}
+            {categories.length === 0 ? (
+              <li className="text-xs text-ink/40">{t("common.loading")}</li>
+            ) : (
+              categories.map((cat) => {
+                const checked = filters.categories?.includes(cat.id) || false;
+                return (
+                  <li key={cat.id}>
+                    <label className="flex items-center gap-2 text-sm text-ink/70 hover:text-ink cursor-pointer">
+                      <input
+                        type="checkbox"
+                        className="accent-gold w-3.5 h-3.5"
+                        checked={checked}
+                        onChange={() => toggleArrayValue("categories", cat.id)}
+                      />
+                      {isAr ? cat.name_ar : cat.name_en}
+                    </label>
+                  </li>
+                );
+              })
+            )}
           </ul>
         </FilterSection>
 
-        <FilterSection title={t("products.filterBy")} defaultOpen>
-          <div className="mb-5">
-            <div className="text-xs text-ink/60 mb-2">
-              {t("products.price")}
-            </div>
-            <input
-              type="range"
-              min="0"
-              max="5000"
-              value={filters.price?.[1] ?? 5000}
-              onChange={(e) =>
-                setFilters((prev) => ({
-                  ...prev,
-                  price: [0, Number(e.target.value)],
-                }))
-              }
-              className="w-full accent-gold"
-            />
-            <div className="flex justify-between text-xs text-ink/60 mt-1">
-              <span>$0</span>
-              <span>${filters.price?.[1] ?? 5000}</span>
-            </div>
+        {/* ===== Price ===== */}
+        <FilterSection title={t("products.price")} defaultOpen>
+          <input
+            type="range"
+            min="0"
+            max={maxPrice || 100}
+            step="50"
+            value={currentMax}
+            onChange={(e) => handlePriceChange(e.target.value)}
+            className="w-full accent-gold"
+          />
+          <div className="flex justify-between text-xs text-ink/60 mt-2">
+            <span>{formatPrice(0)}</span>
+            <span className="text-ink font-medium">
+              {formatPrice(currentMax)}
+            </span>
           </div>
+        </FilterSection>
 
-          <div className="text-xs text-ink/60 mb-2">
-            {t("products.material")}
-          </div>
-          <ul className="space-y-2.5 mb-5">
-            {MATERIALS.map((m) => (
-              <li key={m}>
-                <label className="flex items-center gap-2 text-sm text-ink/70 hover:text-ink cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="accent-gold w-3.5 h-3.5"
-                    checked={filters.materials?.includes(m) || false}
-                    onChange={() => updateFilter("materials", m)}
-                  />
-                  {t(`products.materials.${m}`)}
-                </label>
-              </li>
-            ))}
-          </ul>
-
-          <div className="text-xs text-ink/60 mb-2">{t("products.stone")}</div>
+        {/* ===== Materials ===== */}
+        <FilterSection title={t("products.material")} defaultOpen>
           <ul className="space-y-2.5">
-            {STONES.map((s) => (
-              <li key={s}>
-                <label className="flex items-center gap-2 text-sm text-ink/70 hover:text-ink cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="accent-gold w-3.5 h-3.5"
-                    checked={filters.stones?.includes(s) || false}
-                    onChange={() => updateFilter("stones", s)}
-                  />
-                  {t(`products.stones.${s}`)}
-                </label>
-              </li>
-            ))}
+            {materials.length === 0 ? (
+              <li className="text-xs text-ink/40">{t("common.loading")}</li>
+            ) : (
+              materials.map((m) => {
+                const checked = filters.materials?.includes(m.id) || false;
+                return (
+                  <li key={m.id}>
+                    <label className="flex items-center gap-2 text-sm text-ink/70 hover:text-ink cursor-pointer">
+                      <input
+                        type="checkbox"
+                        className="accent-gold w-3.5 h-3.5"
+                        checked={checked}
+                        onChange={() => toggleArrayValue("materials", m.id)}
+                      />
+                      {isAr ? m.name_ar : m.name_en}
+                    </label>
+                  </li>
+                );
+              })
+            )}
           </ul>
         </FilterSection>
 
-        <button
-          onClick={clearAll}
-          className="mt-6 text-xs text-gold hover:text-gold-dark underline underline-offset-4"
-        >
-          {t("products.clearAll")}
-        </button>
+        {/* Clear All */}
+        {hasActiveFilters && (
+          <button
+            onClick={onClearAll}
+            className="mt-6 text-xs text-gold hover:text-gold-dark underline underline-offset-4"
+          >
+            {t("products.clearAll")}
+          </button>
+        )}
       </div>
     </aside>
   );
